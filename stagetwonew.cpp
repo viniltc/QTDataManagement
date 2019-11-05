@@ -40,16 +40,20 @@ void StageTwoNew::on_pushButton_2_clicked()
 void StageTwoNew::on_pushButton_clicked()
 {
 
+    if(ui->lineEdit_3->text().isEmpty())
+    QMessageBox::critical(this, "Warning", "Please enter a valid patient ID");
+    QString text = ui->textEdit->toPlainText();
+    if(text.isEmpty())
+    QMessageBox::warning(this, "Warning", "Notes area is empty");
 
-   QString filename = ui->lineEdit_3->text();
+    QString filename = ui->lineEdit_3->text();
   // QString location = dir.relativeFilePath("../PatientData");
-   QString path = QCoreApplication::applicationDirPath()+"/"+filename+".xml";
-   QFile file(path);
+    QString path = QCoreApplication::applicationDirPath()+"/data/"+filename+".xml";
+    QFile file(path);
 
 
 //    QString filename = QFileDialog::getSaveFileName(this, "Save Xml", location.append(ui->lineEdit_3->text()), "Xml files (*.xml)");
-//    qDebug()<<"file name"<<filename;
-//    QFile file(filename);
+
     if(!file.open(QFile::WriteOnly | QFile::Text))
     {
         qDebug () << "Error saving XML file...."; // replace this with Q Messange box later!!!!!!!!!!!
@@ -93,4 +97,21 @@ void StageTwoNew::on_pushButton_clicked()
     output << xml.toString();
 
     file.close();
+
+
+    if((ui->lineEdit_3->text().length()!=0) & (ui->textEdit->toPlainText().length()!=0))
+        {
+        hide();
+        MainWindow().show();
+        }
+}
+
+void StageTwoNew::on_tabWidget_currentChanged(int index)
+{
+    if(index==1 | index ==2)
+    {
+       if(ui->lineEdit_3->text().isEmpty())
+
+       QMessageBox::critical(this, "Warning", "Please enter a valid patient ID");
+    }
 }
