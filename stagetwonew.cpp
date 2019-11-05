@@ -19,6 +19,8 @@ StageTwoNew::StageTwoNew(QWidget *parent) :
      qDebug()<<"This is the location::"<<location;
       //QString path = location+"/"+filename+".xml";
 //small change
+// one more
+// more
 }
 
 StageTwoNew::~StageTwoNew()
