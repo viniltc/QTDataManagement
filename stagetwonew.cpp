@@ -20,7 +20,7 @@ StageTwoNew::StageTwoNew(QWidget *parent) :
       //QString path = location+"/"+filename+".xml";
 //small change
 // one more
-// more
+// more test
 }
 
 StageTwoNew::~StageTwoNew()
