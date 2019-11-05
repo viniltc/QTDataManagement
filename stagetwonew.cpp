@@ -18,7 +18,7 @@ StageTwoNew::StageTwoNew(QWidget *parent) :
      QString location = dir.relativeFilePath("./PatientDat");
      qDebug()<<"This is the location::"<<location;
       //QString path = location+"/"+filename+".xml";
-
+//small change
 }
 
 StageTwoNew::~StageTwoNew()
