@@ -18,9 +18,7 @@ StageTwoNew::StageTwoNew(QWidget *parent) :
      QString location = dir.relativeFilePath("./PatientDat");
      qDebug()<<"This is the location::"<<location;
       //QString path = location+"/"+filename+".xml";
-//small change
-// one more
-// more test
+
 }
 
 StageTwoNew::~StageTwoNew()
@@ -63,8 +61,8 @@ void StageTwoNew::on_pushButton_clicked()
 
     QDomDocument xml("tetragrip");
 
-    QDomElement root = xml.createElement("subject details");
-    root.setAttribute("catagory","run session");
+    QDomElement root = xml.createElement("subject_details");
+    //root.setAttribute("category","run session");
     xml.appendChild(root);
 
     QDomElement tagName = xml.createElement("Name");
@@ -77,7 +75,7 @@ void StageTwoNew::on_pushButton_clicked()
     QDomText textSname = xml.createTextNode(ui->lineEdit_2->text());
     tagSname.appendChild(textSname);
 
-    QDomElement tagPID = xml.createElement("Patient ID");
+    QDomElement tagPID = xml.createElement("Patient_ID");
     root.appendChild(tagPID);
     QDomText textPID = xml.createTextNode(ui->lineEdit_3->text());
     tagPID.appendChild(textPID);
@@ -87,7 +85,7 @@ void StageTwoNew::on_pushButton_clicked()
     QDomText textDateTime = xml.createTextNode(ui->dateTimeEdit->text());
     tagDateTime.appendChild(textDateTime);
 
-    QDomElement tagNote = xml.createElement("Clinician Note");
+    QDomElement tagNote = xml.createElement("Clinician_Note");
     root.appendChild(tagNote);
     QDomText textNote = xml.createTextNode(ui->textEdit->toPlainText());
     tagNote.appendChild(textNote);
