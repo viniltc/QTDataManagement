@@ -96,6 +96,8 @@ void StageTwoNew::on_pushButton_clicked()
     QTextStream output(&file);
     output << xml.toString();
 
+    //minor edit
+
     file.close();
 
 
