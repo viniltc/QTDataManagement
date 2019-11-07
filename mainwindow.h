@@ -17,6 +17,9 @@ public:
     ~MainWindow();
     StageTwoNew *stagetwonew;
 
+signals:
+    void editdetails(QString name, QString sname, QString note);
+
 private slots:
     void on_pushButton_clicked();
 

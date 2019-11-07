@@ -87,9 +87,12 @@ void MainWindow::on_pushButton_2_clicked()
 
 
          domDocument.setContent(&file);
-         QDomElement topElement = domDocument.documentElement();
-         QDomNode domNode = topElement.firstChild();
-         const QString name, val;
+        QDomElement topElement = domDocument.documentElement();
+       QDomNode domNode = topElement.elementsByTagName("Name").at(0).firstChild();
+
+       QString name = topElement.elementsByTagName("Name").at(0).firstChild().nodeValue();
+       QString sname = topElement.elementsByTagName("Surname").at(0).firstChild().nodeValue();
+       QString note = topElement.elementsByTagName("Clinician_Note").at(0).firstChild().nodeValue();
 
         qDebug()<<topElement.elementsByTagName("Name").at(0).firstChild().nodeValue();
         qDebug()<<topElement.elementsByTagName("Surname").at(0).firstChild().nodeValue();
@@ -98,17 +101,21 @@ void MainWindow::on_pushButton_2_clicked()
         qDebug()<<topElement.elementsByTagName("Clinician_Note").at(0).firstChild().nodeValue();
 
 
-        while (!domNode.isNull())
-         {
-            QDomElement domElement = domNode.toElement();
-             if (!domElement.isNull())
-                {
-                 //qDebug()<<"Tag name"<<topElement.tagName();
-                // qDebug()<<domElement.tagName();
-               //  qDebug()<<domElement.toString;
-                }
-          domNode = domNode.nextSibling();
-         }
+        emit editdetails(name, sname, note);
+//        modify_window = new MainWindow(this);
+//        modify_window-> show();
+
+//        while (!domNode.isNull())
+//         {
+//            QDomElement domElement = domNode.toElement();
+//             if (!domElement.isNull())
+//                {
+//                 qDebug()<<"Tag name"<<topElement.tagName();
+//                 qDebug()<<topElement.text();
+//               //  qDebug()<<domElement.toString;
+//                }
+//          domNode = domNode.nextSibling();
+//         }
 
 
 

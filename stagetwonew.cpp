@@ -18,6 +18,8 @@ StageTwoNew::StageTwoNew(QWidget *parent) :
      QString location = dir.relativeFilePath("./PatientDat");
      qDebug()<<"This is the location::"<<location;
       //QString path = location+"/"+filename+".xml";
+    // connect(, SIGNAL(editdetails(QString, QString, QString)),this,SLOT(editdetails(QString, QString, QString)));
+
 
 }
 
@@ -98,7 +100,7 @@ void StageTwoNew::on_pushButton_clicked()
 
     file.close();
 
-
+//// check this later...
     if((ui->lineEdit_3->text().length()!=0) & (ui->textEdit->toPlainText().length()!=0))
         {
         hide();
